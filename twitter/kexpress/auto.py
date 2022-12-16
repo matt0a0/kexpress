@@ -16,11 +16,11 @@ client = tweepy.Client(
 )
 
 #Conexão entre o mongodb e o app
-clientMongo = MongoClient("mongodb+srv://ma90theus:<senha de administrador>@cluster0.zkhtqwe.mongodb.net/?retryWrites=true&w=majority")
+clientMongo = MongoClient("mongodb+srv://ma90theus:testando123@cluster0.zkhtqwe.mongodb.net/?retryWrites=true&w=majority")
 #Acessando meu db específico
-db = clientMongo['Tweets']
+db = clientMongo['Tweets_DB']
 #Acessando todos os documentos presentes no meu Collum
-coll = db['tweetGerado']
+coll = db['posts']
 
 #Selecionando todos o que estão com a publicação validada
 for i in coll.find({"autorizado" : True},{}):
@@ -28,7 +28,7 @@ for i in coll.find({"autorizado" : True},{}):
     #Aplico o Looped Time
     #Set do temporizador da publicação
     begin_clock = time.time()
-    clock_timer = 60
+    clock_timer = 10
     while True:
         current_clock = time.time()
         past_clock = current_clock - begin_clock
@@ -37,4 +37,4 @@ for i in coll.find({"autorizado" : True},{}):
             #Realizo a postagem
             tweet = client.create_tweet(text=publi)
             print("###O tweet :  {} foi publicado!".format(tweet))
-            break 
+            break
