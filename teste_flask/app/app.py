@@ -7,7 +7,7 @@ def create_app():
     app.register_blueprint(user)
 
     #Conectando e Inicializando o Banco de Dados
-    app.config["MONGO_URI"] = "mongodb+srv://ma90theus:pipocando03@cluster0.zkhtqwe.mongodb.net/BaseTeste?retryWrites=true&w=majority"
+    app.config["MONGO_URI"] = "mongodb+srv://ma90theus:testando123@cluster0.zkhtqwe.mongodb.net/Tweets_DB?retryWrites=true&w=majority"
 
 
     #Subindo parte Json
